@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Create news{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Create news</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-invalid">
+                <h3>{{ error }}</h3>
+            </div>
+            {{ form.title }}<br>
+            {{ form.announce }}<br>
+            {{ form.full_text }}<br>
+            {{ form.date }}<br>
+            <button class="btn btn-success" type="submit"> add article</button>
+            <a href="{% url 'news_home' %}" class="btn btn-warning"> Back to News</a>
+
+        </form>
+    </div>
+{% endblock %}

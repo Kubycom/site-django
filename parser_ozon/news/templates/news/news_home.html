@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}News{% endblock %}
+{% block content %}
+    <div class="features">
+        <h1>News</h1>
+        {% if news %}
+            {% for one in news %}
+                <div class="alert alert-warning">
+                    <h3>{{ one.title }}</h3>
+                    <p>{{ one.announce }}</p>
+                    <a href="{% url 'news_detail' one.id %}" class="btn btn-success"> Read detail</a>
+                    <p>{{ one.date }}</p>
+                </div>
+        {% endfor %}
+        {% else %}
+            <p>You have not recording!</p>
+        {% endif %}
+        <button class="btn btn-warning">Push</button>
+    </div>
+{% endblock %}
